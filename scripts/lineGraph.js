@@ -99,7 +99,7 @@
                     .attr("d", line(filteredData.find(c => c.race === d.race).values))
                     .attr("fill", "none")
                     .style("stroke", color(d.race))
-                    .style("stroke-width", 1.8)
+                    .style("stroke-width", 1.3)
                     .on("mouseover", (event, d) => {
                         d3.select("#tooltip2")
                             .style("opacity", 1);
@@ -109,11 +109,10 @@
                         const year = Math.round(x.invert(mouse[0]));
                         const percentage = d.values.find(v => v.year === year)?.percentage;
                         if (percentage !== undefined) {
-                            console.log(percentage)
                             d3.select("#tooltip2")
                                 .html(`Race: ${raceLabels[d.race]}<br>Year: ${year}<br>Percentage: ${percentage}%`)
-                                .style("left", (d3.pointer(event, this)[0] + 80) + "px")
-                                .style("top", (d3.pointer(event, this)[1] - 28) + "px");
+                                .style("left", (d3.pointer(event, this)[0] + 350) + "px")
+                                .style("top", (d3.pointer(event, this)[1]) + "px");
                         }
                     })
                     .on("mouseout", () => {
