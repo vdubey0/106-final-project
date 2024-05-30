@@ -130,6 +130,52 @@
                         .text(raceLabels[d.race]);
                 }
             });
+            g.selectAll(".annotation-line").remove();
+            g.selectAll(".annotation-text").remove();
+
+            if (year >= 1996) {
+                // Add a red vertical line at 2021
+                g.append("line")
+                    .attr("class", "annotation-line")
+                    .attr("x1", x(1996))
+                    .attr("y1", 0)
+                    .attr("x2", x(1996))
+                    .attr("y2", height)
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-dasharray", "4,4");
+
+                // Add the annotation text
+                g.append("text")
+                    .attr("class", "annotation-text")
+                    .attr("x", x(1996) + 5)
+                    .attr("y", -10)
+                    .style("font", "11px Verdana, sans-serif")
+                    .style("fill", "red")
+                    .text("CA LAW BANS AFFIRMATIVE ACTION");
+            }
+
+            if (year >= 2020) {
+                // Add a red vertical line at 2021
+                g.append("line")
+                    .attr("class", "annotation-line")
+                    .attr("x1", x(2020))
+                    .attr("y1", 0)
+                    .attr("x2", x(2020))
+                    .attr("y2", height)
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-dasharray", "4,4");
+
+                // Add the annotation text
+                g.append("text")
+                    .attr("class", "annotation-text")
+                    .attr("x", x(2020) + 5)
+                    .attr("y", -10)
+                    .style("font", "11px Verdana, sans-serif")
+                    .style("fill", "red")
+                    .text("UC MOVES TO TEST-BLIND");
+            }
         });
     });
 })();
