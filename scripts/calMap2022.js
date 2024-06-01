@@ -65,6 +65,7 @@
                     const campusData = data.find(row => row.college === d.name);
                     console.log(d.name)
                     if (campusData) {
+                        console.log('here')
                         showTooltip(event, d.name, campusData);
                     }
                     event.stopPropagation(); 
@@ -96,7 +97,6 @@
         americanIndianPct = data['AmericanIndian'];
         asianPct = data['Asian'];
         hispanicPct = data['Hispanic/Latino(a)']
-        pacificPct = data['PacificIslander']
         unknownPct = data['Unknown']
         internationalPct = data['International']
 
@@ -112,9 +112,6 @@
         if (hispanicPct == undefined) {
             hispanicPct = 0
         }
-        if (pacificPct == undefined) {
-            pacificPct = 0
-        }
         if (unknownPct == undefined) {
             unknownPct = 0
         }
@@ -128,7 +125,6 @@
             American Indian: ${americanIndianPct}%<br>
             Asian: ${asianPct}%<br>
             Hispanic/Latino(a): ${hispanicPct}%<br>
-            Pacific Islander: ${pacificPct}%<br>
             White: ${data['White']}%<br>
             Unknown: ${unknownPct}%<br>
             International: ${internationalPct}%

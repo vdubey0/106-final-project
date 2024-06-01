@@ -6,23 +6,23 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <style>
+        .chart-container {
+            position: relative;
+        }
         .chart {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            position: relative; /* Add position relative to the chart container */
         }
         .slider-container {
             display: flex;
+            align-items: center;
             justify-content: center;
             margin-top: 20px;
-            margin-left: 10px;
             font-family: Verdana, sans-serif;
-            width: 100%; /* Set width to 100% */
         }
         .slider-container input[type="range"] {
-            width: 56%; /* Set the width of the range input to 100% */
-            max-width: 1000px; /* Optionally, set a max-width to prevent it from growing too wide */
+            width: 56%;
+            max-width: 1000px;
         }
         .axis text {
             font-family: Verdana, sans-serif;
@@ -41,6 +41,7 @@
         }
         .logo {
             pointer-events: all;
+            cursor: pointer;
         }
         .tooltip {
             position: absolute;
@@ -53,6 +54,16 @@
             border-radius: 8px;
             pointer-events: none;
         }
+        #controls {
+            position: absolute;
+            top: 100;
+            right: 50;
+            margin-top: 150px;
+            margin-left: 1200px;
+            display: flex;
+            align-items: left;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -60,16 +71,32 @@
     <div id="map-container">
         <div id="map"></div>
     </div>
-    <div id="chart-container" class="chart">
-        <svg width="1000" height="600"></svg>
-        <div class="tooltip2" id="tooltip2" style="opacity: 0;"></div>
-    </div>
-    <div class="slider-container">
-        <input type="range" min="1994" max="2023" value="1994" id="yearSlider">
-        <span id="yearLabel">1994</span>
+    <div class="chart-container">
+        <div id="controls">
+            <label for="universitySelect" style="margin-right: 10px;">Select University:</label>
+            <select id="universitySelect">
+                <option value="ucDemoData.csv">All UCs</option>
+                <option value="allBerkeley.csv">UC Berkeley</option>
+                <option value="allDavis.csv">UC Davis</option>
+                <option value="allIrvine.csv">UC Irvine</option>
+                <option value="allMerced.csv">UC Merced</option>
+                <option value="allRiverside.csv">UC Riverside</option>
+                <option value="allUCLA.csv">UCLA</option>
+                <option value="allUCSC.csv">UC Santa Cruz</option>
+                <option value="allUCSB.csv">UC Santa Barbara</option>
+                <option value="allUCSD.csv">UC San Diego</option>
+            </select>
+        </div>
+        <div id="chart-container" class="chart">
+            <svg width="1000" height="600"></svg>
+            <div class="tooltip2" id="tooltip2" style="opacity: 0;"></div>
+        </div>
+        <div class="slider-container">
+            <input type="range" min="1994" max="2023" value="1994" id="yearSlider">
+            <span id="yearLabel">1994</span>
+        </div>
     </div>
     
-
     <script src="scripts/calMap2022.js"></script>
     <script src="scripts/lineGraph.js"></script>
 </body>
