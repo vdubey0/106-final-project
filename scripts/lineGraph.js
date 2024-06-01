@@ -47,7 +47,7 @@
 
             x.domain(d3.extent(parsedData, d => d.year));
             const maxPercentage = d3.max(raceData, r => d3.max(r.values, d => d.percentage));
-            y.domain([-1, Math.ceil(maxPercentage / 5) * 5 + 5]);
+            y.domain([-2, Math.ceil(maxPercentage / 5) * 5 + 5]);
 
             g.selectAll("*").remove();
 
@@ -127,9 +127,10 @@
 
                         if (year !== 1994) {
                             const lastDataPoint = validData[validData.length - 1];
-                            if (lastDataPoint && lastDataPoint.year && lastDataPoint.percentage) {
+                            if (lastDataPoint && lastDataPoint.year && lastDataPoint.percentage !== undefined) {
+                                const yOffset = lastDataPoint.percentage === 0 ? 1 : 0; 
                                 raceG.append("text")
-                                    .attr("transform", `translate(${x(lastDataPoint.year)},${y(lastDataPoint.percentage)})`)
+                                    .attr("transform", `translate(${x(lastDataPoint.year)},${y(lastDataPoint.percentage) - yOffset})`)
                                     .attr("x", 3)
                                     .attr("dy", "0.35em")
                                     .style("font", "10px Verdana, sans-serif")
