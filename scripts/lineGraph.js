@@ -1,18 +1,41 @@
 (function() {
-    const svg = d3.select("#chart-container svg"),
-      svgWidth = +svg.attr("width"),
-      svgHeight = +svg.attr("height"),
-      // Define the margins as percentages
-      marginPercent = { top: 10, right: 12, bottom: 10, left: 10 },  // Example percentages
-      // Calculate the margins in pixels
-      margin = {
-          top: svgHeight * marginPercent.top / 100,
-          right: svgWidth * marginPercent.right / 100,
-          bottom: svgHeight * marginPercent.bottom / 100,
-          left: svgWidth * marginPercent.left / 100
-      },
-      width = svgWidth - margin.left - margin.right,
-      height = svgHeight - margin.top - margin.bottom;
+    const svg = d3.select("#chart-container svg")
+        .attr("viewBox", "0 0 820 600")
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+    // Default dimensions in case they are not specified
+    let svgWidth = svg.attr("width");
+    let svgHeight = svg.attr("height");
+
+    // Check if svgWidth and svgHeight are not set or are invalid
+    if (!svgWidth || isNaN(svgWidth)) {
+        console.warn("SVG width not set or invalid. Defaulting to 960.");
+        svgWidth = 820;
+    } else {
+        svgWidth = +svgWidth;
+    }
+
+    if (!svgHeight || isNaN(svgHeight)) {
+        console.warn("SVG height not set or invalid. Defaulting to 500.");
+        svgHeight = 500;
+    } else {
+        svgHeight = +svgHeight;
+    }
+
+    const marginPercent = { top: 10, right: 12, bottom: 10, left: 10 };
+    const margin = {
+        top: svgHeight * marginPercent.top / 100,
+        right: svgWidth * marginPercent.right / 100,
+        bottom: svgHeight * marginPercent.bottom / 100,
+        left: svgWidth * marginPercent.left / 100
+    };
+
+    const width = svgWidth - margin.left - margin.right;
+    const height = svgHeight - margin.top - margin.bottom;
+
+    console.log(`SVG Width: ${svgWidth}, SVG Height: ${svgHeight}`);
+    console.log(`Margin: ${JSON.stringify(margin)}`);
+    console.log(`Width: ${width}, Height: ${height}`);
 
     const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -21,7 +44,7 @@
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
     const line = d3.line()
-        .defined(d => !isNaN(d.percentage)) 
+        .defined(d => !isNaN(d.percentage))
         .x(d => x(d.year))
         .y(d => y(d.percentage));
 

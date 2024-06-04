@@ -22,9 +22,9 @@
             font-family: Verdana, sans-serif;
         }
         .slider-container input[type="range"] {
-            width: 48.6%;
+            width: 48.3%;
             max-width: 90%;
-            margin-left: 1%;
+            margin-left: 1.5%;
         }
         .axis text {
             font-family: Verdana, sans-serif;
@@ -57,13 +57,11 @@
             pointer-events: none;
         }
         #controls {
-            position: absolute;
-            margin-top: 17%;
-            margin-left: 19%;
             display: flex;
-            align-items: left;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
+            margin-bottom: 20px;
         }
         #controls label {
             margin-bottom: 6px;
@@ -137,7 +135,7 @@
             </select>
         </div>
         <div id="chart-container" class="chart" style="margin-left: 9%;">
-            <svg width="820" height="600"></svg>
+            <svg width="100%" height="600" viewBox="0 0 820 600" preserveAspectRatio="xMidYMid meet"></svg>
             <div class="tooltip2" id="tooltip2" style="opacity: 0;"></div>
         </div>
         <div class="slider-container" style="margin-left: 9%;">
@@ -152,7 +150,9 @@
 
     <br>
     <h3 id="para"> The Importance of Diversity in Higher Education</h3>
-    <p id="para">Diversity in higher education is extremely important in the movement towards achieving equity across racial groups in the United States. It is a key step in ensuring greater chances of success and socioeconomic mobility for an individual, which is why it is critical for members of marginalized groups to have equitable access to admission at an institution of any caliber and prestige. But diversity is not solely beneficial to students of underrepresented groups; research has shown that students’ exposure to people different from themselves gain cognitive benefits, such as improved critical thinking skills and problem solving ability, which will aid in better navigation of American society and culture in the future. The policy efforts that have been made over the course of the past 3 decades have at times hindered diversity efforts, so it will be interesting to see how recent policy changes and new efforts will promote diversity, especially because it plays a pivotal role in American education. </p>
+    <p id="para">Diversity in higher education is extremely important in the movement towards achieving equity across racial groups in the United States. It is a key step in ensuring greater chances of success and socioeconomic mobility for an individual, which is why it is critical for members of marginalized groups to have equitable access to admission at an institution of any caliber and prestige. But diversity is not solely beneficial to students of underrepresented groups; research has shown that students’ exposure to people different from themselves gain cognitive benefits, such as improved critical thinking skills and problem solving ability, which will aid in better navigation of American society and culture in the future. Furthermore, students gain valuable social and cultural competencies by interacting with peers of different backgrounds. </p>
+    <p id="para">Therefore, understanding the effects of educational policy on racial demographics is necessary to identify the best ways to promote diversity and improve accessibility for marginalized groups. With further insights into the ways these policies shape student bodies across institutions, we can inform future policy decisions that foster greater diversity and equity in higher education. </p>
+
     <script src="scripts/calMap2022.js"></script>
     <script src="scripts/lineGraph.js"></script>
     <script src="scripts/timeline.js"></script>
