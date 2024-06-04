@@ -9,10 +9,20 @@
     ];
 
     const svg = d3.select("#timeline"),
-        margin = { top: 20, right: 0, bottom: 30, left: 0 },
-        width = +svg.attr("width") - margin.left - margin.right,
-        height = +svg.attr("height") - margin.top - margin.bottom,
-        g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+      svgWidth = +svg.attr("width"),
+      svgHeight = +svg.attr("height"),
+      // Define the margins as percentages
+      marginPercent = { top: 20, right: 0, bottom: 20, left: 0 },  // Example percentages
+      // Calculate the margins in pixels
+      margin = {
+          top: svgHeight * marginPercent.top / 100,
+          right: svgWidth * marginPercent.right / 100,
+          bottom: svgHeight * marginPercent.bottom / 100,
+          left: svgWidth * marginPercent.left / 100
+      },
+      width = svgWidth - margin.left - margin.right,
+      height = svgHeight - margin.top - margin.bottom,
+      g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
     const x = d3.scaleLinear()
         .domain([1959, 2025])

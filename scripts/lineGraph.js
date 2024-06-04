@@ -1,8 +1,18 @@
 (function() {
     const svg = d3.select("#chart-container svg"),
-        margin = { top: 60, right: 100, bottom: 50, left: 80 },  // Increase top margin to make space for the title
-        width = +svg.attr("width") - margin.left - margin.right,
-        height = +svg.attr("height") - margin.top - margin.bottom;
+      svgWidth = +svg.attr("width"),
+      svgHeight = +svg.attr("height"),
+      // Define the margins as percentages
+      marginPercent = { top: 10, right: 12, bottom: 10, left: 10 },  // Example percentages
+      // Calculate the margins in pixels
+      margin = {
+          top: svgHeight * marginPercent.top / 100,
+          right: svgWidth * marginPercent.right / 100,
+          bottom: svgHeight * marginPercent.bottom / 100,
+          left: svgWidth * marginPercent.left / 100
+      },
+      width = svgWidth - margin.left - margin.right,
+      height = svgHeight - margin.top - margin.bottom;
 
     const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
