@@ -232,7 +232,10 @@
             d3.select("#yearSlider").on("input", function() {
                 const year = +this.value;
                 updateChart(year);
-            }).style('transform', `scale(${width * 1.275 / svgWidth})`);
+            });
+            const xRange = x.range();
+            paddingRatio = 16 / xRange[1]
+            d3.select("#yearSlider").style('width', `${xRange[1] + (xRange[1] * paddingRatio)}px`);
         });
     }
 
