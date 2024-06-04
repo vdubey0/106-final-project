@@ -1,6 +1,6 @@
 (function() {
     const svg = d3.select("#chart-container svg"),
-        margin = { top: 40, right: 100, bottom: 50, left: 80 },
+        margin = { top: 60, right: 100, bottom: 50, left: 80 },  // Increase top margin to make space for the title
         width = +svg.attr("width") - margin.left - margin.right,
         height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -50,6 +50,15 @@
             y.domain([-2, Math.ceil(maxPercentage / 5) * 5 + 5]);
 
             g.selectAll("*").remove();
+
+            // Add title
+            g.append("text")
+                .attr("x", width / 2)
+                .attr("y", -20)
+                .attr("text-anchor", "middle")
+                .style("font", "15px Verdana, sans-serif")
+                .style('font-weight', 'bold')
+                .text("Decreased Rates of Marginalized Groups at Competitive UCs Following Policy Changes");
 
             g.append("g")
                 .attr("class", "axis axis--x")
@@ -107,7 +116,7 @@
                             .style("stroke-width", 2)
                             .on("mouseover", (event, d) => {
                                 d3.select("#tooltip2")
-                                    .style("opacity", 1);
+                                    .style("opacity", 0);
                             })
                             .on("mousemove", (event, d) => {
                                 const mouse = d3.pointer(event);
