@@ -1,4 +1,3 @@
-// scripts/timeline.js
 (function() {
     const timelineData = [
         { year: 1961, text: "<strong>1961</strong><br> President John F. Kennedy passes Executive Order 10925, effectively introducing 'affirmative action' to US legislation.", color: 'steelblue', background: 'lightsteelblue'},
@@ -9,11 +8,9 @@
     ];
 
     const svg = d3.select("#timeline"),
-      svgWidth = +svg.attr("width"),
-      svgHeight = +svg.attr("height"),
-      // Define the margins as percentages
-      marginPercent = { top: 20, right: 0, bottom: 20, left: 0 },  // Example percentages
-      // Calculate the margins in pixels
+      svgWidth = 900,
+      svgHeight = 100,
+      marginPercent = { top: 20, right: 0, bottom: 20, left: 0 },
       margin = {
           top: svgHeight * marginPercent.top / 100,
           right: svgWidth * marginPercent.right / 100,
@@ -30,7 +27,7 @@
 
     const xAxis = d3.axisBottom(x)
         .tickFormat(d => timelineData.map(t => t.year).includes(d) ? d : "")
-        .tickValues(d3.range(1960, 2025)); 
+        .tickValues(d3.range(1960, 2025));
 
     g.append("g")
         .attr("class", "axis")
@@ -48,10 +45,10 @@
 
     const tooltip = d3.select("body").append("div")
         .attr("class", "tooltip3")
-        .style("opacity", 0)
+        .style("opacity", 0);
 
     g.selectAll(".event")
-        .on("mouseover", function (event, d) {
+        .on("mouseover", function(event, d) {
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
@@ -60,7 +57,7 @@
                 .style("top", (event.pageY - 28) + "px");
             tooltip.style('background', d.background);
         })
-        .on("mouseout", function (d) {
+        .on("mouseout", function(d) {
             tooltip.transition()
                 .duration(500)
                 .style("opacity", 0);
