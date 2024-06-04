@@ -23,7 +23,7 @@
         .slider-container input[type="range"] {
             width: 55.75%;
             max-width: 1000px;
-            margin-left:19px;
+            margin-left: 19px;
         }
         .axis text {
             font-family: Verdana, sans-serif;
@@ -65,12 +65,50 @@
             align-items: left;
             justify-content: center;
         }
+        #timeline-container {
+            margin-left: 300px;
+            margin-right: 200px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .tooltip3 {
+            position: absolute;
+            text-align: center;
+            width: 180px;
+            padding: 5px;
+            font: 12px sans-serif;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        #sideside {
+            position: absolute;
+            right: 0;
+            margin-top: 130px;
+            margin-left: 950px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <h1 style="text-align: center; font-family: Verdana, sans-serif;">UC Systemwide Admitted Students Race Breakdown</h1>
+    <p style="margin-left:280px; margin-right:280px">For almost 4 decades, maintaining diversity at their campuses has been a top priority for the University of California system. Yet, some landmark policies including the ban of affirmative action in 1996 and the repeal of standardized testing (i.e. SAT and ACT) in 2020, which were both implemented with the intent of fostering more diversity, have only funneled more marginalized students to the less competitive campuses and left the issue largely unresolved (maybe even worse) in more competitive schools.</p>
+    <p style="margin-left:280px; margin-right:280px"> Here's some more history (hover over <span style="color:red">standardized testing</span> policies in red, <span style="color:steelblue">affirmative action</span> in blue): </p>
+    <div id="timeline-container">
+        <svg id="timeline" width="900" height="100"></svg>
+    </div>
+    <br>
+    <p style="margin-left:280px; margin-right:280px"> This is the current racial breakdown of the 2023 admitted class for each UC campus (click the logos): </p>
+
+    <!-- This part  -->
     <div id="map-container">
-        <div id="map"></div>
+        <p id="sideside" style="margin-right:320px; padding: 15px; border-radius: 20px; border: 2px solid black; background-color: #f9f9f9; text-align: center"> 
+            From the map, we can already see some discrepancies that arise between the more competitive campuses and less competitive campuses.<br><br> For example, let's compare the most competitive UC campus, UCLA with a 9% acceptance  rate, to the least competitive campus, UC Merced with an 89% acceptance rate. UCLA, proportionally, has HALF the rate of Hispanic students than UC Merced. Even further, we can also see a much larger share of white students in UCLA than we do at Merced.
+        </p>
+        <div id="map" style="margin-left:-200px"></div>
     </div>
     <div class="chart-container">
         <div id="controls">
@@ -100,5 +138,6 @@
     
     <script src="scripts/calMap2022.js"></script>
     <script src="scripts/lineGraph.js"></script>
+    <script src="scripts/timeline.js"></script>
 </body>
 </html>
