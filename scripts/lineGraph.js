@@ -54,7 +54,7 @@
             // Add title
             g.append("text")
                 .attr("x", width / 2)
-                .attr("y", -20)
+                .attr("y", -35)
                 .attr("text-anchor", "middle")
                 .style("font", "15px Verdana, sans-serif")
                 .style('font-weight', 'bold')
