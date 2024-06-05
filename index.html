@@ -58,10 +58,11 @@
         }
         #controls {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            flex-direction: column;
+            /* flex-direction: column; */
             margin-bottom: 20px;
+            margin-top: 10px;
         }
         #controls label {
             margin-bottom: 6px;
@@ -119,6 +120,14 @@
     </div>
     <p id="para">Now that we understand the current breakdown, let’s see how this has changed over time with regards to the policy changes mentioned earlier.</p>
     <div class="chart-container">
+        <div id="chart-container" class="chart" style="margin-left: 3%;">
+            <svg width="100%" height="600" viewBox="0 0 820 600" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="tooltip2" id="tooltip2" style="opacity: 0;"></div>
+        </div>
+        <div class="slider-container" style="margin-left: 3%;">
+            <input type="range" min="1994" max="2023" value="1994" id="yearSlider">
+            <span id="yearLabel">1994</span>
+        </div>
         <div id="controls">
             <label for="universitySelect" style="margin-right: 1%;">Select University:</label>
             <select id="universitySelect">
@@ -133,14 +142,6 @@
                 <option value="allUCSB.csv">UC Santa Barbara</option>
                 <option value="allUCSD.csv">UC San Diego</option>
             </select>
-        </div>
-        <div id="chart-container" class="chart" style="margin-left: 9%;">
-            <svg width="100%" height="600" viewBox="0 0 820 600" preserveAspectRatio="xMidYMid meet"></svg>
-            <div class="tooltip2" id="tooltip2" style="opacity: 0;"></div>
-        </div>
-        <div class="slider-container" style="margin-left: 9%;">
-            <input type="range" min="1994" max="2023" value="1994" id="yearSlider">
-            <span id="yearLabel">1994</span>
         </div>
         <br>
         
