@@ -89,7 +89,7 @@
                 .attr("x", width / 2)
                 .attr("y", -35)
                 .attr("text-anchor", "middle")
-                .style("font", "15px Verdana, sans-serif")
+                .style("font", "20px Roboto Serif, serif")
                 .style('font-weight', 'bold')
                 .text("Decreased Rates of Marginalized Groups at Competitive UCs Following Policy Changes");
 
@@ -103,7 +103,7 @@
                 .attr("y", 35)
                 .attr("dy", "0.71em")
                 .attr("text-anchor", "middle")
-                .style("font", "18px Verdana, sans-serif")
+                .style("font", "18px Roboto Serif, serif")
                 .text("Year");
 
             g.append("g")
@@ -116,7 +116,7 @@
                 .attr("y", -50)
                 .attr("dy", "0.71em")
                 .attr("text-anchor", "bottom")
-                .style("font", "18px Verdana, sans-serif")
+                .style("font", "18px Roboto Serif, serif")
                 .text("Share of Students by Percent");
 
             const race = g.selectAll(".race")
@@ -175,7 +175,7 @@
                                     .attr("transform", `translate(${x(lastDataPoint.year)},${y(lastDataPoint.percentage) - yOffset})`)
                                     .attr("x", 3)
                                     .attr("dy", "0.35em")
-                                    .style("font", "10px Verdana, sans-serif")
+                                    .style("font", "10px Roboto Serif, serif")
                                     .text(raceLabels[d.race]);
                             }
                         }
@@ -200,7 +200,7 @@
                         .attr("class", "annotation-text")
                         .attr("x", x(1996) + 5)
                         .attr("y", -10)
-                        .style("font", "11px Verdana, sans-serif")
+                        .style("font", "11px Roboto Serif, serif")
                         .style("fill", "red")
                         .text("CA LAW BANS AFFIRMATIVE ACTION");
                 }
@@ -220,7 +220,7 @@
                         .attr("class", "annotation-text")
                         .attr("x", x(2020) + 5)
                         .attr("y", -10)
-                        .style("font", "11px Verdana, sans-serif")
+                        .style("font", "11px Roboto Serif, serif")
                         .style("fill", "red")
                         .text("UC MOVES TO TEST-BLIND");
                 }
