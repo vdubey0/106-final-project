@@ -15,18 +15,22 @@
         }
 
         .header {
-            background-color: black;
-            color: white;
+            background-image: url('images/geisel.jpeg'); /* Replace with your image URL */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center;
+            /*background-color: #042684e6;*/
+            color: rgb(31, 31, 31);
+            padding: 8% 20% 45% 20%;
             text-align: center;
-            padding: 26%;
-            margin: 0;
         }
 
         .header h1 {
-            font-size: 40px; /* Adjust size as needed */
+            font-size: 30px; /* Adjust size as needed */
             font-family: "Roboto Serif", serif;
-            font-weight: 700; /* Bold */
+            font-weight: 600; /* Bold */
             margin: 0;
+            white-space: normal; /* Ensure text wraps */
+            word-wrap: break-word;
         }
 
         .header h2 {
@@ -134,11 +138,18 @@
             font: 17px "Roboto Serif", serif;
             line-height: 2;
         }
+
+        #ref {
+            margin-left: 18%;
+            margin-right: 17%;
+            font: 17px "Roboto Serif", serif;
+            line-height: 1;
+        }
         .custom-hr {
             margin-left: 18%;
             height: 3px;
             width: 50px; /* Adjust width as needed */
-            background-color: #2d0cd3e6; /* Adjust color as needed */
+            background-color: #042684e6; /* Adjust color as needed */
             border: none;
         }
 
@@ -146,11 +157,15 @@
 </head>
 <body>
     <div class="header">
-        <h1 style="text-align: center; font: 25px Roboto Serif, serif; font-weight: bold">How have landmark educational policies changed the racial makeup of University of California?</h1>
-        <h2 style="text-align: center; font: 13px Roboto Serif, serif;">by Pallavi Gaikwad & Vrisan Dubey</h2>
+        <h1>How have landmark educational policies changed the racial makeup of University of California?</h1>
+        <br>
+        <h2>by Pallavi Gaikwad & Vrisan Dubey</h2>
     </div>
     <br>
-        <p id = 'para'>For almost 4 decades, maintaining diversity at their campuses has been a top priority for the University of California system. Yet, some landmark policies including the ban of affirmative action in 1996, which were implemented with the intent of fostering more diversity, have only worsened the issue in more competitive campuses while leaving it mostly unresolved in the less competitive schools.</p>
+        <p id = 'para'>The debate about policies aimed to increase diversity in higher education has been one of the most polarizing social issues in the United States.  For almost 4 decades, maintaining and increasing diversity at their campuses has been a top priority for the University of California system, which is home to some of the most applied to and prestigious public universities in the world. Yet, some landmark educational policies, such as the California ban of affirmative action in 1996, have only worsened the issue in more competitive campuses while leaving it mostly unresolved in the less competitive schools.</p>
+        <br>
+        <hr class="custom-hr">
+        <h3>Education Policies Through the Years</h3>
         <p id="para"> We will specifically focus on two major policies: the 1996 affirmative action ban, as mentioned before, and the repeal of standardized testing (i.e. SAT and ACT) in 2020. Here's some more history (hover over <span style="color:red">standardized testing</span> policies in red, <span style="color:steelblue">affirmative action</span> in blue): </p>
         <div id="timeline-container" style="position: relative;">
             <svg id="timeline" width="100%" height="100" viewBox="0 0 900 100" preserveAspectRatio="xMidYMid meet"></svg>
@@ -166,6 +181,8 @@
             </p>
             <div id="map" style="margin-left:-200px"></div>
         </div>
+        <hr class="custom-hr">
+        <h3>Diversity in University of California (1994 - 2023)</h3>
         <p id="para">Now that we understand the current breakdown, let’s see how this has changed over time with regards to the policy changes mentioned earlier.</p>
         <div class="chart-container">
             <div id="chart-container" class="chart" style="margin-left: 3%;">
@@ -201,6 +218,11 @@
         <h3>The Importance of Diversity in Higher Education</h3>
         <p id="para">Diversity in higher education is extremely important in the movement towards achieving equity across racial groups in the United States. It is a key step in ensuring greater chances of success and socioeconomic mobility for an individual, which is why it is critical for members of marginalized groups to have equitable access to admission at an institution of any caliber and prestige. But diversity is not solely beneficial to students of underrepresented groups; research has shown that students’ exposure to people different from themselves gain cognitive benefits, such as improved critical thinking skills and problem solving ability, which will aid in better navigation of American society and culture in the future. Furthermore, students gain valuable social and cultural competencies by interacting with peers of different backgrounds. </p>
         <p id="para">Therefore, understanding the effects of educational policy on racial demographics is necessary to identify the best ways to promote diversity and improve accessibility for marginalized groups. With further insights into the ways these policies shape student bodies across institutions, we can inform future policy decisions that foster greater diversity and equity in higher education. </p>
+        <br>
+        <hr class="custom-hr">
+        <h3>References and Additional Materials</h3>
+        <p id="ref"><a href='https://www.youtube.com/watch?v=jAy_5aYs4l0'>Demo Video Link</a></p>
+        <p id="ref"><a href='https://www.universityofcalifornia.edu/about-us/information-center/admissions-residency-and-ethnicity'>UC Demographic Dataset</a></p>
     <script src="scripts/calMap2022.js"></script>
     <script src="scripts/lineGraph.js"></script>
     <script src="scripts/timeline.js"></script>
